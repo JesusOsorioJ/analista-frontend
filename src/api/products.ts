@@ -5,7 +5,9 @@ const data: RawProduct[] = dataJson as RawProduct[];
 const BASE = 'https://api-frontend-production.up.railway.app/api';
 
 export async function fetchRawProduct(id: string): Promise<RawProduct> {
-//   const res = await fetch(`${BASE}/products/${id}`);
+// Se comenta esto debido a que se envia mucha informacion en cada registro,
+// lo busco desde data.json para mejorar rendimiento de aplicacion 
+// const res = await fetch(`${BASE}/products/${id}`);
 // if (!res.ok) throw new Error(`Error fetching product ${id}: ${res.status}`);
   const product = data.find(d => d.productId === id);
   if (!product) {
@@ -15,6 +17,8 @@ export async function fetchRawProduct(id: string): Promise<RawProduct> {
 }
 
 export async function fetchRawRelated(ft: string): Promise<RawProduct[]> {
+// Se comenta esto debido a que se envia mucha informacion en cada registro,
+// lo busco desde data.json para mejorar rendimiento de aplicacion 
 //   const res = await fetch(`${BASE}/products?ft=${ft}`);
 //   if (!res.ok) throw new Error(`Error fetching related products: ${res.status}`);
 //   return res.json();
