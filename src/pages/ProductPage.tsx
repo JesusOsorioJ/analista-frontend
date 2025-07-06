@@ -37,7 +37,16 @@ export const ProductPage: React.FC = () => {
 
   useEffect(() => { run(); }, [id]);
 
-  if (loading) return (
+
+
+  if (error) return (
+    <div className="flex flex-col gap-10 items-center justify-center min-h-[60vh]">
+      <p className="text-lg text-red-500">Error: {error.message}</p>
+      <img src="/monkey-svgrepo-com.svg" className="size-40" alt="" />
+    </div>
+  );
+
+  if (loading || !product) return (
     <div className="flex flex-col md:flex-row gap-10 items-center justify-center min-h-[60vh]">
       <div className="size-40 bg-gray-500 animate-pulse" />
       <div className="flex flex-col gap-5">
@@ -51,21 +60,6 @@ export const ProductPage: React.FC = () => {
         </div>
         <div className="w-20 h-2 bg-gray-500 animate-pulse rounded" />
       </div>
-    </div>
-  );
-
-  if (error) return (
-    <div className="flex flex-col gap-10 items-center justify-center min-h-[60vh]">
-      <p className="text-lg text-red-500">Error: {error.message}</p>
-      <img src="/monkey-svgrepo-com.svg" className="size-40" alt="" />
-    </div>
-  );
-
-
-  if (!product) return (
-    <div className="flex flex-col gap-10 items-center justify-center min-h-[60vh]">
-      <p className="text-lg">Producto no encontrado</p>
-      <img src="/monkey-svgrepo-com.svg" className="size-40" alt="" />
     </div>
   );
 
