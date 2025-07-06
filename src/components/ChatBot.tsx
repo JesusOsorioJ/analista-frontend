@@ -149,7 +149,7 @@ export const ChatBot: React.FC = () => {
               value={input}
               onChange={e => setInput(e.target.value)}
               onKeyDown={e => e.key === 'Enter' && handleSend()}
-              placeholder="Camisa polo, talla xs, color negro, o simple zapatos mujer"
+              placeholder="¿Qué producto buscas? Ej. camisa M, zapatos mujer"
               className="w-full bg-gray-800 text-white border border-gray-600 rounded-full px-3 py-2 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none"
             />
             <button onClick={handleSend} className="text-blue-400 hover:text-blue-600 cursor-pointer">

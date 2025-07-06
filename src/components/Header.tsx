@@ -24,18 +24,21 @@ export const Header: React.FC = () => {
           Vélez.
         </NavLink>
         <nav className="hidden md:flex space-x-10">
-          {navItems.map(item => (
-            <NavLink
-              key={item.to}
-              to={item.to}
-              end={item.end}
-              className={({ isActive }) =>
-                `nav-link hover:text-gray-300 ${isActive ? 'active text-gray-400' : ''}`
-              }
-            >
-              {item.label}
-            </NavLink>
-          ))}
+            {navItems.map(item => (
+              <NavLink
+                key={item.to}
+                to={item.to}
+                end={item.end}
+                className={({ isActive }) => {
+                  const active = item.to === '/product/125832040'
+                    ? location.pathname.startsWith('/product')
+                    : isActive;
+                  return `nav-link hover:text-gray-300 ${active ? 'active text-gray-400' : ''}`;
+                }}
+              >
+                {item.label}
+              </NavLink>
+            ))}
         </nav>
         <div className="flex items-center" onClick={() => setOpen(o => !o)}>
           <CartSummary />

@@ -1,69 +1,93 @@
-# React + TypeScript + Vite
+# Vélez Frontend Challenge
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Página de Detalle de Producto** con búsqueda por IA y carrito de compras.
 
-Currently, two official plugins are available:
+## 📖 Descripción
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Este proyecto es una prueba técnica para un rol de Analista Frontend, consistente en una Página de Detalle de Producto (PDP) con un diseño único y moderno, que consume una API pública y permite:
 
-## Expanding the ESLint configuration
+* Visualizar detalles completos de un producto: imágenes, marca, referencía, tallas, colores y precio.
+* Navegar por productos relacionados en un carrusel.
+* Añadir productos al carrito con persistencia en LocalStorage (Zustand).
+* Chatbot IA flotante que filtra productos según la consulta del usuario.
+* Animaciones sutiles (Framer Motion) y tema oscuro con Tailwind CSS.
+* Splash screen animado al cargar la aplicación.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 🚀 Tecnologías
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+* **Vite** 🧪
+* **React** + **TypeScript**
+* **Tailwind CSS** para estilos
+* **Zustand** para estado global y persistencia
+* **Framer Motion** para animaciones
+* **Axios** para llamadas al backend
+* **OpenAI** (o tu servicio local) para IA conversacional
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+## 📦 Instalación y ejecución
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+1. Clona el repositorio:
+
+   ```bash
+   git clone https://github.com/tu-usuario/velez-frontend.git
+   cd velez-frontend
+   ```
+
+2. Instala dependencias:
+
+   ```bash
+   npm install
+   # o yarn install
+   ```
+
+3. Crea un archivo de entorno basado en `env.example`. Abre .env y reemplaza las variables con tus valores reales:
+
+   ```bash
+   cp env.example .env
+   ```
+  
+4. Inicia el servidor de desarrollo:
+
+   ```bash
+   npm run dev
+   # o yarn dev
+   ```
+
+Abre tu navegador en `http://localhost:5173`.
+
+## ⚙️ Scripts disponibles
+
+* `npm run dev` — Inicia en modo desarrollo.
+* `npm run build` — Genera la versión de producción.
+* `npm run preview` — Previsualiza el build de producción.
+
+## 📁 Estructura de carpetas
+
+```
+src/
+├─ api/          # Llamadas al backend y lógica de filtrado
+├─ components/   # Componentes UI (Header, Footer, ProductCard, ChatBot...)
+├─ pages/        # Páginas principales (LandingPage, ProductPage, CheckoutPage)
+├─ stores/       # Zustand stores (cart, chat)
+├─ hooks/        # Custom React hooks
+├─ utils/        # Funciones utilitarias (formatPrice, parseJson)
+└─ assets/       # SVGs, imágenes
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 📐 Buenas prácticas incluidas
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+* Tipado estricto con TypeScript.
+* Gestión de estado y persistencia con Zustand.
+* Animaciones accesibles y sutiles con Framer Motion.
+* Diseño responsivo y tema oscuro con Tailwind CSS.
+* Manejo de errores en fetch, login automático y reintentos.
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## 🚧 Despliegue
+
+Puedes ver esta pagina desplegada en Vercel en el siguiente link: https://analista-frontend.vercel.app/
+
+## 📝 Consideraciones finales
+
+* La IA filtra localmente usando definiciones de tipo, sin exponer datos.
+* El splash screen ofrece una experiencia de bienvenida.
+
+¡Gracias por revisar este proyecto! Cualquier duda, abre un issue o contáctame en jesusosoriojimenez@outlook.com 🚀

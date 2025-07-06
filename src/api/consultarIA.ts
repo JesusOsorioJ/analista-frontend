@@ -1,8 +1,7 @@
 import axios from 'axios';
 
 // -------- CONFIGURACIÓN --------
-// Cambia esto si el backend está en otro host/puerto:
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL_IA;
 
 // Credenciales fijas para /login (tal y como lo definiste en tu backend)
 const CREDENTIALS = {

@@ -2,7 +2,8 @@ import type { RawProduct, SimplifiedProduct } from './types';
 import dataJson from '../../data.json'
 const data = dataJson as unknown as RawProduct[];
 
-// const BASE = 'https://api-frontend-production.up.railway.app/api';
+// -------- CONFIGURACIÓN --------
+// const BASE = import.meta.env.VITE_API_BASE_URL;
 
 export async function fetchRawProduct(id: string): Promise<RawProduct> {
 // Se comenta esto debido a que se envia mucha informacion en cada registro,
