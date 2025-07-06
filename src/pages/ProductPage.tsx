@@ -1,15 +1,15 @@
 // src/pages/ProductPage.tsx
 import React, { useEffect, useRef, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
+import Slider from 'react-slick';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 import { fetchProduct, fetchRelated } from '../api/products';
 import type { SimplifiedProduct } from '../api/types';
 import { formatPrice } from '../utils/format';
 import { useFetch } from '../hooks/useFetch';
 import { useCartStore } from '../stores/useCartStore';
 import { ProductCard } from '../components/ProductCard';
-import Slider from 'react-slick';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
 
 export const ProductPage: React.FC = () => {
   const { id } = useParams<{ id: string }>();
@@ -37,9 +37,37 @@ export const ProductPage: React.FC = () => {
 
   useEffect(() => { run(); }, [id]);
 
-  if (loading) return <p className="p-4">Cargando producto...</p>;
-  if (error) return <p className="p-4">Error: {error.message}</p>;
-  if (!product) return <p className="p-4">Producto no encontrado</p>;
+  if (loading) return (
+    <div className="flex flex-col md:flex-row gap-10 items-center justify-center min-h-[60vh]">
+      <div className="size-40 bg-gray-500 animate-pulse" />
+      <div className="flex flex-col gap-5">
+        <div className="w-80 sm:w-100 h-4 bg-gray-500 animate-pulse rounded" />
+        <div className="w-50 h-4 bg-gray-500 animate-pulse rounded" />
+        <div className="flex flex-col gap-2">
+          <div className="w-80 sm:w-100 h-2 bg-gray-500 animate-pulse rounded" />
+          <div className="w-80 sm:w-100 h-2 bg-gray-500 animate-pulse rounded" />
+          <div className="w-80 sm:w-100 h-2 bg-gray-500 animate-pulse rounded" />
+          <div className="w-80 sm:w-100 h-2 bg-gray-500 animate-pulse rounded" />
+        </div>
+        <div className="w-20 h-2 bg-gray-500 animate-pulse rounded" />
+      </div>
+    </div>
+  );
+
+  if (error) return (
+    <div className="flex flex-col gap-10 items-center justify-center min-h-[60vh]">
+      <p className="text-lg text-red-500">Error: {error.message}</p>
+      <img src="/monkey-svgrepo-com.svg" className="size-40" alt="" />
+    </div>
+  );
+
+
+  if (!product) return (
+    <div className="flex flex-col gap-10 items-center justify-center min-h-[60vh]">
+      <p className="text-lg">Producto no encontrado</p>
+      <img src="/monkey-svgrepo-com.svg" className="size-40" alt="" />
+    </div>
+  );
 
   const handleAdd = () => {
     addItem({ ...product, quantity, selectedSize, selectedColor });
