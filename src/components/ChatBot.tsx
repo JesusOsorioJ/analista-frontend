@@ -7,7 +7,7 @@ import { motion } from 'framer-motion';
 import { PaperPlaneIcon } from '@radix-ui/react-icons';
 import { consultaIA } from '../api/consultarIA';
 
-const data: RawProduct[] = dataJson as RawProduct[];
+const data = dataJson as unknown as RawProduct[];
 
 export const ChatBot: React.FC = () => {
   const [loading, setLoading] = useState(false);

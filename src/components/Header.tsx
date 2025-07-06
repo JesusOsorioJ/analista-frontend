@@ -1,7 +1,7 @@
 
 
 import React, { useState } from 'react';
-import { NavLink, useLocation } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { CartSummary } from './CartSummary';
 import { ChatBot } from './ChatBot';
 import { CartDrawer } from './CartDrawer';

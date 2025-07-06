@@ -1,6 +1,6 @@
 // src/pages/ProductPage.tsx
 import React, { useEffect, useRef, useState } from 'react';
-import { useParams, Link, useNavigate } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import { fetchProduct, fetchRelated } from '../api/products';
 import type { SimplifiedProduct } from '../api/types';
 import { formatPrice } from '../utils/format';
@@ -34,7 +34,6 @@ export const ProductPage: React.FC = () => {
   });
 
   const addItem = useCartStore(s => s.addItem);
-  const navigate = useNavigate();
 
   useEffect(() => { run(); }, [id]);
 

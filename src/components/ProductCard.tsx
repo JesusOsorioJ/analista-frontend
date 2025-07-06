@@ -1,7 +1,6 @@
 import React from 'react';
 import type { SimplifiedProduct } from '../api/types';
 import { formatPrice } from '../utils/format';
-import { Link } from 'react-router-dom';
 
 export const ProductCard: React.FC<SimplifiedProduct> = ({
   id,
@@ -14,7 +13,7 @@ export const ProductCard: React.FC<SimplifiedProduct> = ({
     <div className="relative bg-[#00000057] overflow-hidden shadow-md group transition-transform duration-300 hover:scale-[1.015]">
       <img
         src={images[0]}
-        alt={title}
+        alt={title + id}
         className="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105"
       />
 

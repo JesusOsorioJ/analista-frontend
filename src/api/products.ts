@@ -1,8 +1,8 @@
 import type { RawProduct, SimplifiedProduct } from './types';
 import dataJson from '../../data.json'
-const data: RawProduct[] = dataJson as RawProduct[];
+const data = dataJson as unknown as RawProduct[];
 
-const BASE = 'https://api-frontend-production.up.railway.app/api';
+// const BASE = 'https://api-frontend-production.up.railway.app/api';
 
 export async function fetchRawProduct(id: string): Promise<RawProduct> {
 // Se comenta esto debido a que se envia mucha informacion en cada registro,
@@ -22,6 +22,7 @@ export async function fetchRawRelated(ft: string): Promise<RawProduct[]> {
 //   const res = await fetch(`${BASE}/products?ft=${ft}`);
 //   if (!res.ok) throw new Error(`Error fetching related products: ${res.status}`);
 //   return res.json();
+  console.log(ft)
   return data;
 }
 
